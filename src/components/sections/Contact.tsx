@@ -25,10 +25,13 @@ export default function Contact() {
 
   const onSubmit = async (data: FormData) => {
     setSending(true);
-    // EmailJS integration — replace with your IDs
     try {
-      await new Promise((r) => setTimeout(r, 1500)); // simulate
-      // await emailjs.send("SERVICE_ID","TEMPLATE_ID", { ...data }, "PUBLIC_KEY");
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("Failed");
       setStatus("success");
       reset();
     } catch {
