@@ -100,7 +100,6 @@ export default function GitHubStats() {
                     <span className="h-2.5 w-2.5 rounded-full" style={{ background: lang.color }} />
                     <span className="text-foreground font-medium">{lang.name}</span>
                   </div>
-                  <span className="text-xs text-muted-foreground">{lang.percent}%</span>
                 </div>
               ))}
             </div>
